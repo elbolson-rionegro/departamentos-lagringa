@@ -1,92 +1,426 @@
-body {
-    font-family: Arial, sans-serif;
+﻿/* =========================
+   RESET + BASE
+========================= */
+* {
     margin: 0;
-    color: #333;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* HERO */
+:root {
+    --color-bg: #fafafa;
+    --color-text: #2f2f2f;
+    --color-primary: #2e7d32; /* verde naturaleza */
+    --color-secondary: #6d4c41; /* tierra */
+    --color-light: #ffffff;
+    --color-dark: #1c1c1c;
+    --max-width: 1100px;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+/* =========================
+   HEADER + NAV
+========================= */
+.site-header {
+    background: var(--color-light);
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+    .site-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+/* =========================
+   LOGO LINK RESET
+========================= */
+.logo a,
+.logo a:visited,
+.logo a:hover,
+.logo a:active,
+.logo a:focus {
+    color: inherit; /* mismo color siempre */
+    text-decoration: none; /* sin subrayado */
+    outline: none; /* sin borde focus */
+}
+
+
+nav a {
+    margin-left: 1.2rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+    nav a:hover {
+        color: var(--color-primary);
+    }
+
+/* =========================
+   HERO
+========================= */
 .hero {
     position: relative;
-    background-image: url('images/header.jpg');
+    height: 75vh;
+    min-height: 420px;
     background-size: cover;
     background-position: center;
-    height: 260px;
+    color: #fff;
+}
+
+.hero-simple {
+    position: relative;
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+    .hero::before,
+    .hero-simple::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    color: white;
-}
-
-    .hero .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 140, 0, 0.45);
-    }
-
-    .hero h1, .hero p {
-        position: relative;
-        z-index: 2;
-    }
-
-/* BUTTONS */
-.buttons {
+    align-items: center;
     text-align: center;
-    margin: 25px 0;
+    padding: 1rem;
 }
 
-.btn {
-    background: #ff8a3d;
-    padding: 12px 18px;
-    margin: 5px;
+    .hero-content h1,
+    .hero-content h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-content p {
+        max-width: 700px;
+        font-size: 1.1rem;
+        opacity: 0.95;
+    }
+
+/* =========================
+   BOTONES
+========================= */
+.btn-primary {
     display: inline-block;
-    color: white;
-    border-radius: 6px;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.6rem;
+    background: #25d366;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-    .btn:hover {
-        background: #e3721f;
+    .btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
     }
 
-/* SECTIONS */
-.section, .owners, .choose {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
+.btn-secondary {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.4rem;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
 }
 
-.services {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background: #fff3e6;
+/* =========================
+   SECCIONES
+========================= */
+section {
+    padding: 3rem 0;
 }
 
-    .services div {
-        width: 45%;
+    section h2,
+    section h3 {
+        margin-bottom: 1rem;
+        color: var(--color-dark);
     }
 
+    section p {
+        max-width: 800px;
+        margin-bottom: 1rem;
+    }
+
+/* =========================
+   CARDS
+========================= */
 .cards {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .card {
-    background: #ffdeb8;
-    padding: 15px;
-    border-radius: 8px;
-    width: 28%;
+    background: var(--color-light);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     text-align: center;
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #333;
-    color: white;
+/* =========================
+   GALERÍA
+========================= */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
 }
+
+    .gallery img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+        }
+
+/* =========================
+   MAPA
+========================= */
+.map iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+    background: var(--color-dark);
+    color: #bbb;
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    nav {
+        font-size: 0.95rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+    .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+    }
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* =========================
+   WHATSAPP FLOAT
+========================= */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.2s ease;
+}
+
+    .whatsapp-float:hover {
+        transform: scale(1.05);
+    }
+
+    .whatsapp-float img {
+        width: 28px;
+        height: 28px;
+    }
+/* =========================
+   SOCIAL LINKS
+========================= */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+    .social-links a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        max-width: fit-content;
+        background: #f2f2f2;
+        color: var(--color-text);
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+        .social-links a:hover {
+            background: #e6e6e6;
+            transform: translateX(2px);
+        }
+
+/* =========================
+   HERO SIMPLE – MEJOR CONTRASTE
+========================= */
+.hero-simple::before {
+    background: rgba(0, 0, 0, 0.6);
+}
+.hero-simple .hero-content h2 {
+    color: #ffffff;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.8);
+}
+
+.hero-simple .hero-content p {
+    color: #f1f1f1;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+}
+
+/* =========================
+   VIDEOS (LINK A YOUTUBE)
+========================= */
+.video-grid {
+    display: flex;
+    justify-content: center; /* centra en línea */
+    gap: 2.5rem; /* separación entre videos */
+    margin-top: 2.5rem;
+    flex-wrap: wrap; /* por si en mobile bajan */
+}
+
+.video-card {
+    position: relative;
+    width: 320px; /* 🔑 MUCHO más chicos */
+    max-width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+    .video-card img {
+        width: 100%;
+        display: block;
+    }
+
+    .video-card span {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0,0,0,0.45);
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: background 0.2s ease;
+    }
+
+    .video-card:hover span {
+        background: rgba(0,0,0,0.6);
+    }
+
+/* =========================
+   PROMO FLOAT RIGHT
+========================= */
+.promo-float-right {
+    position: fixed;
+    right: 18px;
+    bottom: 92px; /* arriba del botón de WhatsApp */
+    width: 260px;
+    max-width: calc(100vw - 36px);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    z-index: 1100;
+    display: none; /* 🔑 se activa solo si la imagen existe */
+    background: #fff;
+    transition: transform 0.2s ease;
+}
+
+    .promo-float-right:hover {
+        transform: translateY(-2px);
+    }
+
+    .promo-float-right img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
