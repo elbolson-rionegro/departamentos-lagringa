@@ -402,17 +402,19 @@ section {
 .promo-float-right {
     position: fixed;
     right: 18px;
-    bottom: 92px; /* arriba del botón de WhatsApp */
-    width: 260px;
+    bottom: 92px;
+    width: 320px;
     max-width: calc(100vw - 36px);
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.5), 0 10px 30px rgba(0,0,0,0.25), 0 0 45px rgba(255,255,255,0.75), 0 0 90px rgba(255,255,255,0.55), 0 0 140px rgba(255,255,255,0.35);
     z-index: 1100;
-    display: none; /* 🔑 se activa solo si la imagen existe */
+    display: block;
     background: #fff;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+
 
     .promo-float-right:hover {
         transform: translateY(-2px);
