@@ -1,6 +1,6 @@
-﻿/* =========================
-   RESET + BASE
-========================= */
+﻿/* ======================================================
+   RESET + VARIABLES BASE
+====================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +10,8 @@
 :root {
     --color-bg: #fafafa;
     --color-text: #2f2f2f;
-    --color-primary: #2e7d32; /* verde naturaleza */
-    --color-secondary: #6d4c41; /* tierra */
+    --color-primary: #2e7d32;
+    --color-secondary: #6d4c41;
     --color-light: #ffffff;
     --color-dark: #1c1c1c;
     --max-width: 1100px;
@@ -24,9 +24,9 @@ body {
     line-height: 1.6;
 }
 
-/* =========================
-   CONTAINER
-========================= */
+/* ======================================================
+   LAYOUT GENERAL
+====================================================== */
 .container {
     width: 90%;
     max-width: var(--max-width);
@@ -34,9 +34,24 @@ body {
     padding: 3rem 0;
 }
 
-/* =========================
+section {
+    padding: 3rem 0;
+}
+
+    section h2,
+    section h3 {
+        margin-bottom: 1rem;
+        color: var(--color-dark);
+    }
+
+    section p {
+        max-width: 800px;
+        margin-bottom: 1rem;
+    }
+
+/* ======================================================
    HEADER + NAV
-========================= */
+====================================================== */
 .site-header {
     background: var(--color-light);
     border-bottom: 1px solid #e0e0e0;
@@ -52,20 +67,18 @@ body {
         padding: 1rem 0;
     }
 
-/* =========================
-   LOGO LINK RESET
-========================= */
+/* Logo */
 .logo a,
 .logo a:visited,
 .logo a:hover,
 .logo a:active,
 .logo a:focus {
-    color: inherit; /* mismo color siempre */
-    text-decoration: none; /* sin subrayado */
-    outline: none; /* sin borde focus */
+    color: inherit;
+    text-decoration: none;
+    outline: none;
 }
 
-
+/* Nav */
 nav a {
     margin-left: 1.2rem;
     text-decoration: none;
@@ -77,24 +90,25 @@ nav a {
         color: var(--color-primary);
     }
 
-/* =========================
+/* ======================================================
    HERO
-========================= */
-.hero {
+====================================================== */
+.hero,
+.hero-simple {
     position: relative;
-    height: 75vh;
-    min-height: 420px;
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: #ffffff;
+}
+
+.hero {
+    height: 75vh;
+    min-height: 420px;
 }
 
 .hero-simple {
-    position: relative;
-    height: 320px;
-    background-size: cover;
-    background-position: center;
-    color: #fff;
+    min-height: 320px;
+    padding: 4rem 0;
 }
 
     .hero::before,
@@ -102,7 +116,7 @@ nav a {
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.45);
+        background: rgba(0, 0, 0, 0.6);
     }
 
 .hero-content {
@@ -121,17 +135,19 @@ nav a {
     .hero-content h2 {
         font-size: clamp(2rem, 4vw, 3rem);
         margin-bottom: 0.5rem;
+        text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8);
     }
 
     .hero-content p {
         max-width: 700px;
         font-size: 1.1rem;
         opacity: 0.95;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
     }
 
-/* =========================
-   BOTONES
-========================= */
+/* ======================================================
+   BOTONES GENERALES
+====================================================== */
 .btn-primary {
     display: inline-block;
     margin-top: 1.5rem;
@@ -149,39 +165,9 @@ nav a {
         transform: translateY(-1px);
     }
 
-.btn-secondary {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.6rem 1.4rem;
-    background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-}
-
-/* =========================
-   SECCIONES
-========================= */
-section {
-    padding: 3rem 0;
-}
-
-    section h2,
-    section h3 {
-        margin-bottom: 1rem;
-        color: var(--color-dark);
-    }
-
-    section p {
-        max-width: 800px;
-        margin-bottom: 1rem;
-    }
-
-/* =========================
+/* ======================================================
    CARDS
-========================= */
+====================================================== */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -193,13 +179,13 @@ section {
     background: var(--color-light);
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
-/* =========================
+/* ======================================================
    GALERÍA
-========================= */
+====================================================== */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -219,159 +205,24 @@ section {
             transform: scale(1.02);
         }
 
-/* =========================
-   MAPA
-========================= */
-.map iframe {
-    width: 100%;
-    height: 350px;
-    border: none;
-    border-radius: 8px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-.site-footer {
-    background: var(--color-dark);
-    color: #bbb;
-    text-align: center;
-    padding: 1.2rem;
-    font-size: 0.9rem;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-    nav {
-        font-size: 0.95rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-}
-
-/* =========================
-   LIGHTBOX
-========================= */
-.lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
-
-    .lightbox img {
-        max-width: 90%;
-        max-height: 90%;
-        border-radius: 8px;
-    }
-
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 2.5rem;
-    color: #fff;
-    cursor: pointer;
-}
-
-/* =========================
-   WHATSAPP FLOAT
-========================= */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-    background: #25d366;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: transform 0.2s ease;
-}
-
-    .whatsapp-float:hover {
-        transform: scale(1.05);
-    }
-
-    .whatsapp-float img {
-        width: 28px;
-        height: 28px;
-    }
-/* =========================
-   SOCIAL LINKS
-========================= */
-.social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 1rem;
-}
-
-    .social-links a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.6rem 1rem;
-        max-width: fit-content;
-        background: #f2f2f2;
-        color: var(--color-text);
-        text-decoration: none;
-        border-radius: 6px;
-        font-weight: 500;
-        transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-        .social-links a:hover {
-            background: #e6e6e6;
-            transform: translateX(2px);
-        }
-
-/* =========================
-   HERO SIMPLE – MEJOR CONTRASTE
-========================= */
-.hero-simple::before {
-    background: rgba(0, 0, 0, 0.6);
-}
-.hero-simple .hero-content h2 {
-    color: #ffffff;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.8);
-}
-
-.hero-simple .hero-content p {
-    color: #f1f1f1;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
-}
-
-/* =========================
-   VIDEOS (LINK A YOUTUBE)
-========================= */
+/* ======================================================
+   VIDEOS
+====================================================== */
 .video-grid {
     display: flex;
-    justify-content: center; /* centra en línea */
-    gap: 2.5rem; /* separación entre videos */
+    justify-content: center;
+    gap: 2.5rem;
     margin-top: 2.5rem;
-    flex-wrap: wrap; /* por si en mobile bajan */
+    flex-wrap: wrap;
 }
 
 .video-card {
     position: relative;
-    width: 320px; /* 🔑 MUCHO más chicos */
-    max-width: 100%;
+    width: 320px;
     border-radius: 12px;
     overflow: hidden;
     text-decoration: none;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
     .video-card img {
@@ -385,44 +236,215 @@ section {
         display: flex;
         justify-content: center;
         align-items: center;
-        background: rgba(0,0,0,0.45);
-        color: #ffffff;
-        font-size: 1rem;
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
         font-weight: 600;
-        transition: background 0.2s ease;
     }
 
     .video-card:hover span {
-        background: rgba(0,0,0,0.6);
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+/* ======================================================
+   MAPA
+====================================================== */
+.map iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* ======================================================
+   CTA FINAL (REUTILIZABLE)
+====================================================== */
+.hero-cta {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.cta-text {
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+/* WhatsApp CTA */
+.btn-whatsapp {
+    background: #25d366;
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .btn-whatsapp:hover {
+        background: #1ebe5d;
+    }
+
+.cta-note {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* CTA bloques */
+.cta-block {
+    margin-top: 25px;
+}
+
+.cta-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* CTA links */
+.cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Plataformas */
+.btn-platform {
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .btn-platform.airbnb {
+        background: #ff5a5f;
+    }
+
+    .btn-platform.alquileres {
+        background: #2c7be5;
+    }
+
+/* Redes */
+.cta-social {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+    .cta-social .cta-links a {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cta-social i {
+        font-size: 1.4rem;
+        color: #fff;
+    }
+
+    .cta-social a[href*="instagram"] i {
+        color: #e1306c;
+    }
+
+    .cta-social a[href*="facebook"] i {
+        color: #1877f2;
+    }
+
+/* ======================================================
+   FOOTER
+====================================================== */
+.site-footer {
+    background: var(--color-dark);
+    color: #ccc;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* ======================================================
+   WHATSAPP FLOAT
+====================================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+    .whatsapp-float img {
+        width: 28px;
+        height: 28px;
     }
 
 /* =========================
-   PROMO FLOAT RIGHT
+   PROMO FLOAT RIGHT + CLOSE
 ========================= */
-.promo-float-right {
+
+.promo-wrapper {
     position: fixed;
     right: 18px;
     bottom: 92px;
-    width: 320px;
+    z-index: 1200;
+}
+
+.promo-float-right {
+    width: 240px; /* 👈 tamaño original más razonable */
     max-width: calc(100vw - 36px);
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.5), 0 10px 30px rgba(0,0,0,0.25), 0 0 45px rgba(255,255,255,0.75), 0 0 90px rgba(255,255,255,0.55), 0 0 140px rgba(255,255,255,0.35);
-    z-index: 1100;
-    display: block;
     background: #fff;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    display: block;
 }
-
-
-
-    .promo-float-right:hover {
-        transform: translateY(-2px);
-    }
 
     .promo-float-right img {
         width: 100%;
         height: auto;
         display: block;
+    }
+
+/* Botón de cierre */
+.promo-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: none;
+    background: #ffffff;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    line-height: 1;
+    z-index: 2;
+}
+
+    .promo-close:hover {
+        background: #f2f2f2;
     }
 

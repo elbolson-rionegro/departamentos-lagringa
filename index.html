@@ -8,13 +8,21 @@
     <meta name="description" content="Departamentos La Gringa en El Bolsón. Naturaleza, tranquilidad y atención personalizada. Consultas por WhatsApp.">
 
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-..."
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer">
 </head>
 <body>
 
     <!-- ================= HEADER ================= -->
     <header class="site-header">
         <div class="container">
-            <h1 class="logo">La Gringa</h1>
+            <h1 class="logo">
+                <a href="index.html">Departamentos La Gringa - El Bolsón</a>
+            </h1>
             <nav>
                 <a href="index.html">Inicio</a>
                 <a href="pages/fotos.html">Fotos</a>
@@ -44,13 +52,16 @@
     </section>
 
     <!-- ================= PROMO FLOAT RIGHT ================= -->
-    <a href="https://wa.me/5492944208568?text=Hola,%20quisiera%20consultar%20por%20la%20promoción"
-       target="_blank"
-       rel="noopener"
-       class="promo-float-right"
-       aria-label="Ver promoción">
-        <img src="assets/img/promo-1.png" alt="">
-    </a>
+    <div class="promo-wrapper" id="promoFloat">
+        <button class="promo-close" aria-label="Cerrar promoción">×</button>
+
+        <a href="https://wa.me/5492944208568?text=Hola,%20quisiera%20consultar%20por%20la%20promoción"
+           target="_blank"
+           rel="noopener"
+           class="promo-float-right">
+            <img src="assets/img/promo-1.png" alt="Promoción La Gringa">
+        </a>
+    </div>
 
     <!-- ================= PRESENTACIÓN ================= -->
     <section class="container">
@@ -156,34 +167,82 @@
     </section>
 
     <!-- ================= CTA FINAL ================= -->
-    <section class="hero-simple" style="background-image: url('assets/img/hero.jpg');">
+    <section class="hero-simple hero-cta" style="background-image: url('assets/img/hero.jpg');">
         <div class="hero-content">
+
             <h2>Consultanos sin compromiso</h2>
-            <h2>Consultanos sin compromiso</h2>
-            <p>
+
+            <p class="cta-text">
                 Escribinos por WhatsApp y te respondemos a la brevedad
                 para ayudarte a organizar tu estadía en El Bolsón,
                 según tus fechas y necesidades.
             </p>
 
-            <a class="btn-primary"
-               href="https://wa.me/5492944208568?text=Hola,%20quisiera%20consultar%20por%20disponibilidad"
-               target="_blank"
-               rel="noopener">
-                WhatsApp
-            </a>
+            <!-- CTA PRINCIPAL -->
+            <div class="cta-main">
+                <a class="btn-whatsapp"
+                   href="https://wa.me/5492944208568?text=Hola,%20quisiera%20consultar%20por%20disponibilidad"
+                   target="_blank"
+                   rel="noopener">
+                    <i class="fab fa-whatsapp"></i>
+                    Consultar por WhatsApp
+                </a>
 
-            <a class="btn-secondary"
-               href="https://www.airbnb.com.ar/rooms/22824832"
-               target="_blank">
-                Ver en Airbnb
-            </a>
+                <small class="cta-note">
+                    Mejor precio y atención directa
+                </small>
+            </div>
+
+            <!-- PLATAFORMAS DE RESERVA -->
+            <div class="cta-block">
+                <span class="cta-label">También podés reservar en:</span>
+
+                <div class="cta-links">
+                    <a class="btn-platform airbnb"
+                       href="https://www.airbnb.com.ar/rooms/22824832"
+                       target="_blank"
+                       rel="noopener">
+                        <i class="fab fa-airbnb"></i>
+                        Airbnb
+                    </a>
+
+                    <a class="btn-platform alquileres"
+                       href="https://www.alquilerargentina.com/alojamientos/wd62-Departamento-Departamentos-La-Gringa-El-Bols%C3%B3n.html"
+                       target="_blank"
+                       rel="noopener">
+                        <i class="fas fa-home"></i>
+                        Alquileres Argentina
+                    </a>
+                </div>
+            </div>
+
+            <!-- REDES SOCIALES -->
+            <div class="cta-block cta-social">
+                <span class="cta-label">Seguinos en redes:</span>
+
+                <div class="cta-links">
+                    <a href="https://www.instagram.com/departamentos.lagringa/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/departamentos.lagringa"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- ================= FOOTER ================= -->
     <footer class="site-footer">
-        <p>© 2025 La Gringa – Departamentos · El Bolsón, Río Negro</p>
+        <p>© 2025 La Gringa – Departamentos · El Bolsón, Río Negro · TE:02944-208568</p>
     </footer>
 
     <a href="https://wa.me/5492944208568?text=Hola,%20quisiera%20consultar%20por%20disponibilidad"
@@ -192,6 +251,12 @@
        aria-label="WhatsApp">
         <img src="assets/img/whatsapp.svg" alt="WhatsApp">
     </a>
+
+    <script>
+          document.querySelector('.promo-close')?.addEventListener('click', function () {
+            document.getElementById('promoFloat').style.display = 'none';
+          });
+    </script>
 
 </body>
 </html>
