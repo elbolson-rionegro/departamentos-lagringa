@@ -448,3 +448,12 @@ nav a {
         background: #f2f2f2;
     }
 
+/* =========================
+   HERO TITLES – HALO BLANCO
+========================= */
+
+.hero-content h1,
+.hero-content h2 {
+    color: #ffffff;
+    text-shadow: 0 0 4px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.4), 0 2px 12px rgba(0,0,0,0.6);
+}
